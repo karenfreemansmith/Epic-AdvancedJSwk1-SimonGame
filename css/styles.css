@@ -1,0 +1,55 @@
+.red {
+  background-color: #9E0000;
+}
+
+.yellow {
+  background-color: goldenrod;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.green {
+  background-color: green;
+}
+.green:active {
+  background-color: #67F704;
+}
+
+.red:active {
+  background-color: #FD1704;
+}
+
+.yellow:active {
+  background-color: yellow;
+}
+
+.blue:active {
+  background-color: #09A0F7;
+}
+
+.red, .yellow, .blue, .green {
+  float: left;
+  width: 50%;
+  height: 300px;
+}
+
+.simon {
+  height: 700px;
+  border-radius: 50%;
+  border: solid black 50px;
+  overflow: hidden;
+  width:700px;
+  margin: auto;
+  display: block;
+}
+
+body {
+  text-align: center;
+}
+
+.btn {
+  margin-top: 20px;
+  font-size: 2em;
+}
