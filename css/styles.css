@@ -13,19 +13,19 @@
 .green {
   background-color: green;
 }
-.green:active {
+.green:active .ltgreen{
   background-color: #67F704;
 }
 
-.red:active {
+.red:active .ltred{
   background-color: #FD1704;
 }
 
-.yellow:active {
+.yellow:active .ltyellow{
   background-color: yellow;
 }
 
-.blue:active {
+.blue:active .ltblue{
   background-color: #09A0F7;
 }
 
