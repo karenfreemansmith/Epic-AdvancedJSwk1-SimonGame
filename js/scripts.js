@@ -1,47 +1,65 @@
 //UI
 $(document).ready (function() {
   var thisTurn = 1;
+  var totalTurns = 8;
   var guess = 0;
   var guesses = 0;
-  var game = new Simon(8);
+  var game = new Simon(totalTurns);
   var turnArray=[];
 
   $('#start').submit(function() {
-    // $('div.4').css("background", "#09A0F7");
     game.initialize();
     takeTurn();
+    $('button#startbutton').removeAttr("disabled");
     event.preventDefault();
   });
   //start turn
   function takeTurn() {
+    guess=0;
+    guesses = 0;
+    if(thisTurn>totalTurns) {
+      //end game
+      $('button#startbutton').attr("disabled", "enabled");
+    }
     turnArray=game.thisTurn(thisTurn);
     //show sequence from current array
-    for(var i=0; i<turnArray.length; i++){
-      if(turnArray[i]==1) {
-        $('div.1').css("background", "#FD1704");
-        window.setTimeout(function() {
-					$('div.1').css("background", "#9E0000");
-				}, 300);
-      } else if (turnArray[i]==2) {
-        $('div.2').css("background", "yellow");
-        window.setTimeout(function() {
-          $('div.2').css("background", "goldenrod");
-        }, 300);
-      } else if (turnArray[i]==3) {
-        $('div.3').css("background", "#67F704");
-        window.setTimeout(function() {
-          $('div.3').css("background", "green");
-        }, 300);
-      } else if (turnArray[i]==4) {
-        $('div.4').css("background", "#09A0F7");
-        window.setTimeout(function() {
-          $('div.4').css("background", "blue");
-        }, 300);
-      } else {
-        //show error - should never get here
-        console.log("invalid number in array");
+    var i=0;
+    myVar=setInterval(function (){
+
+        if(turnArray[i]==1) {
+          $('div.1').css("background", "#FD1704");
+          window.setTimeout(function() {
+  					$('div.1').css("background", "#9E0000");
+  				}, 300);
+
+        } else if (turnArray[i]==2) {
+          $('div.2').css("background", "yellow");
+          window.setTimeout(function() {
+            $('div.2').css("background", "goldenrod");
+          }, 300);
+
+        } else if (turnArray[i]==3) {
+          $('div.3').css("background", "#67F704");
+          window.setTimeout(function() {
+            $('div.3').css("background", "green");
+          }, 300);
+
+        } else if (turnArray[i]==4) {
+          $('div.4').css("background", "#09A0F7");
+          window.setTimeout(function() {
+            $('div.4').css("background", "blue");
+          }, 300);
+
+        } else {
+          //show error - should never get here
+          console.log("invalid number in array");
+        }
+
+      i++;
+      if(i>=turnArray.length) {
+        clearInterval(myVar);
       }
-    }
+    }, 1000);
   }
 
 
