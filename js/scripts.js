@@ -4,26 +4,39 @@ $(document).ready (function() {
   var guess = 0;
   var guesses = 0;
   var game = new Simon(8);
-  var turnArray[];
+  var turnArray=[];
 
   $('#start').submit(function() {
-    Simon.initialize();
+    // $('div.4').css("background", "#09A0F7");
+    game.initialize();
     takeTurn();
     event.preventDefault();
   });
   //start turn
   function takeTurn() {
-    turnArray[]=Simon.turn(thisTurn);
+    turnArray=game.thisTurn(thisTurn);
     //show sequence from current array
-    for(var i=0; i<turnArray.length(); i++){
+    for(var i=0; i<turnArray.length; i++){
       if(turnArray[i]==1) {
-        //show bright red
+        $('div.1').css("background", "#FD1704");
+        window.setTimeout(function() {
+					$('div.1').css("background", "#9E0000");
+				}, 300);
       } else if (turnArray[i]==2) {
-        //show bright yellow
+        $('div.2').css("background", "yellow");
+        window.setTimeout(function() {
+          $('div.2').css("background", "goldenrod");
+        }, 300);
       } else if (turnArray[i]==3) {
-        //show bright green
+        $('div.3').css("background", "#67F704");
+        window.setTimeout(function() {
+          $('div.3').css("background", "green");
+        }, 300);
       } else if (turnArray[i]==4) {
-        //show bright blue
+        $('div.4').css("background", "#09A0F7");
+        window.setTimeout(function() {
+          $('div.4').css("background", "blue");
+        }, 300);
       } else {
         //show error - should never get here
         console.log("invalid number in array");
@@ -33,36 +46,37 @@ $(document).ready (function() {
 
 
   //listen for clicks until number == array length
-  $('.red').onClick(function(){
+  $('div.1').click(function(){
     guess=1;
+    // needs to see if the guess is right
     guesses++;
     if(guesses==thisTurn) {
       thisTurn++;
-      //get next turn
+      takeTurn();
     }
   });
-  $('.yellow').onClick(function(){
+  $('div.2').click(function(){
     guess=2;
     guesses++;
     if(guesses==thisTurn) {
       thisTurn++;
-      //get next turn
+      takeTurn();
     }
   });
-  $('.green').onClick(function(){
+  $('div.3').click(function(){
     guess=3;
     guesses++;
     if(guesses==thisTurn) {
       thisTurn++;
-      //get next turn
+      takeTurn();
     }
   });
-  $('.blue').onClick(function(){
+  $('div.4').click(function(){
     guess=4;
     guesses++;
     if(guesses==thisTurn) {
       thisTurn++;
-      //get next turn
+      takeTurn();
     }
   });
 
@@ -80,12 +94,12 @@ function Simon (turns) {
   this.colors = [];
 };
 
-Simon.prototype.initialize() = function () {
+Simon.prototype.initialize = function () {
   for(var i=0; i<this.turns; i++) {
     this.colors[i]=Math.floor((Math.random() * 4) + 1);
   }
-});
+};
 
-Simon.prototype.turn(thisTurn) = function() {
-  return this.colors.slice(thisTurn);
+Simon.prototype.thisTurn = function(thisTurn) {
+  return this.colors.slice(0,thisTurn);
 }
