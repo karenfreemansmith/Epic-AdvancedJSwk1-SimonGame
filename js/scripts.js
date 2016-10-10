@@ -10,7 +10,7 @@ $(document).ready (function() {
   $('#start').submit(function() {
     game.initialize();
     takeTurn();
-    $('button#startbutton').removeAttr("disabled");
+    $('button#startbutton').attr("disabled", "enabled");
     event.preventDefault();
   });
   //start turn
@@ -19,7 +19,7 @@ $(document).ready (function() {
     guesses = 0;
     if(thisTurn>totalTurns) {
       //end game
-      $('button#startbutton').attr("disabled", "enabled");
+      $('button#startbutton').removeAttr("disabled");
     }
     turnArray=game.thisTurn(thisTurn);
     //show sequence from current array
@@ -65,8 +65,13 @@ $(document).ready (function() {
 
   //listen for clicks until number == array length
   $('div.1').click(function(){
+
     guess=1;
-    // needs to see if the guess is right
+    if(turnArray[guesses]==guess) {
+      // alert("Correct :)");
+    } else {
+      endGame();
+    }
     guesses++;
     if(guesses==thisTurn) {
       thisTurn++;
@@ -75,6 +80,11 @@ $(document).ready (function() {
   });
   $('div.2').click(function(){
     guess=2;
+    if(turnArray[guesses]==guess) {
+      //alert("Correct :)");
+    } else {
+      endGame();
+    }
     guesses++;
     if(guesses==thisTurn) {
       thisTurn++;
@@ -83,6 +93,11 @@ $(document).ready (function() {
   });
   $('div.3').click(function(){
     guess=3;
+    if(turnArray[guesses]==guess) {
+      //alert("Correct :)");
+    } else {
+      endGame();
+    }
     guesses++;
     if(guesses==thisTurn) {
       thisTurn++;
@@ -91,19 +106,23 @@ $(document).ready (function() {
   });
   $('div.4').click(function(){
     guess=4;
+    if(turnArray[guesses]==guess) {
+      //alert("Correct :)");
+    } else {
+      endGame();
+    }
     guesses++;
     if(guesses==thisTurn) {
       thisTurn++;
       takeTurn();
     }
   });
-
-
-  // --OR--
-  //click is wrong color
-  //end of game
-
 });
+
+function endGame() {
+  alert("WRONG...YOU LOSE!!!! Better go to art school and learn your colors!");
+  location.reload();
+}
 
 //Logic
 
