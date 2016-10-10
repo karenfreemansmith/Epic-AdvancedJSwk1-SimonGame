@@ -48,7 +48,7 @@ $(document).ready (function() {
           }, 300);
 
         } else if (turnArray[i]==4) {
-          $('div.4').css("background", "#09A0F7");
+          $('div.4').css("background", "#99d6ff");
           window.setTimeout(function() {
             $('div.4').css("background", "blue");
           }, 300);

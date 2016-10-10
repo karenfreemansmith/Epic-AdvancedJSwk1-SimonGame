@@ -38,18 +38,24 @@
 .simon {
   height: 700px;
   border-radius: 50%;
-  border: solid black 50px;
+  border: groove black 50px;
   overflow: hidden;
   width:700px;
   margin: auto;
   display: block;
 }
 
+h1 {
+  background-color: white;
+}
+
 body {
   text-align: center;
+  background-image: url('http://eskipaper.com/images/cube-background-1.jpg');
 }
 
 .btn {
+  padding: 6px 60px;
   margin-top: 20px;
   font-size: 2em;
 }
