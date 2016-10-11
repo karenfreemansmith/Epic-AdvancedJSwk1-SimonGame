@@ -13,19 +13,19 @@
 .green {
   background-color: green;
 }
-.green:active .ltgreen{
+.green:active {
   background-color: #67F704;
 }
 
-.red:active .ltred{
+.red:active {
   background-color: #FD1704;
 }
 
-.yellow:active .ltyellow{
+.yellow:active {
   background-color: yellow;
 }
 
-.blue:active .ltblue{
+.blue:active {
   background-color: #09A0F7;
 }
 
@@ -47,6 +47,11 @@
 
 h1 {
   background-color: white;
+  opacity: .75;
+  line-height: 2.5;
+  margin:25px;
+  border: solid black 1px;
+  border-radius: 5px;
 }
 
 body {
