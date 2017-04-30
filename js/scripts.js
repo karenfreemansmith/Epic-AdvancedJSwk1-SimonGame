@@ -9,11 +9,11 @@ $(document).ready (function() {
   var game = new Simon(totalTurns);
   var turnArray=[];
 
-  $('#start').submit(function(event) {
+  $('#start').click(function(event) {
+    event.preventDefault();
     game.initialize();
     takeTurn();
     $('button#startbutton').attr("disabled", "enabled");
-    event.preventDefault();
   });
   function takeTurn() {
     guess=0;
