@@ -1,4 +1,4 @@
-var Simon = require('./../js/simone.js').game;
+//var Simon = require('./../js/simone.js').game;
 
 //UI
 $(document).ready (function() {
