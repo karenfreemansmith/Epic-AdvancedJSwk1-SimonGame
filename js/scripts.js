@@ -1,4 +1,4 @@
-//var Simon = require('./../js/simone.js').game;
+ent//var Simon = require('./../js/simone.js').game;
 
 //UI
 $(document).ready (function() {
@@ -9,7 +9,7 @@ $(document).ready (function() {
   var game = new Simon(totalTurns);
   var turnArray=[];
 
-  $('#start').submit(function() {
+  $('#start').submit(function(event) {
     game.initialize();
     takeTurn();
     $('button#startbutton').attr("disabled", "enabled");
