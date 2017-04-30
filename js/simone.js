@@ -15,4 +15,4 @@ Simon.prototype.thisTurn = function(thisTurn) {
   return this.colors.slice(0,thisTurn);
 };
 
-exports.game = Simon;
+//exports.game = Simon;
